@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>React Basics</title>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+
+
+    const container = document.querySelector('.js-container');
+    const root = ReactDOM.createRoot(container);
+
+    setInterval(() => {
+      const date = dayjs().format("MMMM DD");
+      const time = dayjs().format("HH:mm:ss");
+      const printDate =
+        <>
+          <p>Today is {date}</p>
+          <p>Time is {time}</p>
+        </>;
+      root.render(printDate);
+    }, 1000);
+
+    // Components and props
+  </script>
+</body>
+
+</html>
