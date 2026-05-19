@@ -28,37 +28,6 @@
           sender: "user",
           id: crypto.randomUUID()
         }];
-        /*
-        [{
-        message: "hello",
-        sender: "user",
-        id: "id1"
-      }, {
-        message: "Hello! How can I help you?",
-        sender: "robot",
-        id: "id2"
-      }, {
-        message: "Flip a coin",
-        sender: "user",
-        id: "id3"
-      }, {
-        message: "Sure! You got heads",
-        sender: "robot",
-        id: "id4"
-      }, {
-        message: "Thank you",
-        sender: "user",
-        id: "id5"
-      }, {
-        message: "No problem! Let me know if you need help with anything else!",
-        sender: "robot",
-        id: "id6"
-      },{
-          message: "flip a coin",
-          sender: "user",
-          id: dfiwueru2
-        }]
-        */
 
         setChatMessages(userMessage)
 
@@ -70,42 +39,8 @@
           id: crypto.randomUUID()
         }])
 
-                /*
-        [{
-        message: "hello",
-        sender: "user",
-        id: "id1"
-      }, {
-        message: "Hello! How can I help you?",
-        sender: "robot",
-        id: "id2"
-      }, {
-        message: "Flip a coin",
-        sender: "user",
-        id: "id3"
-      }, {
-        message: "Sure! You got heads",
-        sender: "robot",
-        id: "id4"
-      }, {
-        message: "Thank you",
-        sender: "user",
-        id: "id5"
-      }, {
-        message: "No problem! Let me know if you need help with anything else!",
-        sender: "robot",
-        id: "id6"
-      },{
-          message: "flip a coin",
-          sender: "user",
-          id: dfiwueru2
-        },{
-          message: "Sure you got tails",
-          sender: "robot",
-          id : 5235234gdsr25
-        }]
-        */
 
+        setInputValue("");
       }
 
       return (
@@ -114,6 +49,7 @@
             placeholder="Send a message to the chat bot"
             size="30"
             onChange={storeInputValue}
+            value = {inputValue}
           />
 
           <button
