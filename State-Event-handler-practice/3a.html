@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Revision session</title>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+    function Counter({click,setClick}) {  
+      // const click = props.click;
+      // const setClick = props.setClick;
+      function handleClick() {
+        setClick(click + 1);
+      }
+
+      return (
+        <>
+        <button
+          onClick={handleClick}
+        >Clicked {click} {click === 1 ? "time" : "times"}</button>
+        </>
+      )
+    }
+
+
+    function App() {
+      const [click, setClick] = React.useState(0);
+
+      function handleReset(){
+        setClick(0);
+      }
+
+      return (
+        <>
+        <Counter
+        click = {click}
+        setClick = {setClick}
+        />
+        <Counter 
+        click = {click}
+        setClick = {setClick}
+        />
+        <button
+        onClick = {handleReset}
+        >Reset</button>
+        </>
+      )
+    }
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App />);
+  </script>
+</body>
+
+</html>

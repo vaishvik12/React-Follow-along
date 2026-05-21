@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>First React lecture</title>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+    function App(){
+      const [count , setCount] = React.useState(0);
+      const [secondCount, setSecondCount] = React.useState(50);
+
+      React.useEffect(() => { 
+        console.log("API called");
+      },[count]);
+
+
+      function handleClick(){
+        setCount(count + 1);
+      }
+      function handleSecondClick(){
+        setSecondCount(secondCount + 1);
+      }
+
+
+
+      return (
+        <>
+        <div>
+        <h1>{count}</h1>
+        <button
+        onClick = {handleClick}
+        >Increase</button>
+        </div>
+        <div>
+        <h1>{secondCount}</h1>
+        <button
+        onClick = {handleSecondClick}
+        >Increase</button>
+        </div>
+        </>
+      )
+
+    }
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App />);
+  </script>
+</body>
+</html>
