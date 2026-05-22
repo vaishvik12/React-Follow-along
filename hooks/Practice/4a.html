@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>First React lecture</title>
+  <style>
+    .switch-bttn{
+      color : white;
+      font-size : 16px;
+      padding : 12px 20px;
+      border : none;
+      border-radius : 8px;
+    }
+
+    .switch-bttn-on{
+      background-color: rgb(25,135,84);
+    }
+
+    .switch-bttn-off{
+      background-color: rgb(255,0,0);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+    function App(){
+
+      const [isButtonOn, setIsButtonOn] = React.useState(false);
+
+      function toggleButton(){
+        setIsButtonOn(!isButtonOn);
+      }
+
+      return (
+        <button
+        onClick = {toggleButton}
+        className = 
+        {`switch-bttn ${isButtonOn ? "switch-bttn-on" : "switch-bttn-off"}`}>
+          {isButtonOn ? "On" : "Off"}
+          </button>
+      )
+    } 
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App />);
+  </script>
+</body>
+</html>

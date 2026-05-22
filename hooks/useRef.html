@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>First React lecture</title>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+    function App(){
+
+      const inputRef = React.useRef(null);
+
+        /*
+        {
+          current : input
+        }
+        */
+  
+      React.useEffect(() => {
+      inputRef.current.focus();
+      },[]);
+
+      return (
+        <>
+        <input type = "email" ref = {inputRef} placeholder = "email"/>
+        <input type = "password"    placeholder = "password"/>
+        </>
+      )
+    }
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App />);
+  </script>
+</body>
+</html>

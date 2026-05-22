@@ -84,6 +84,12 @@
 
     function ChatInput({ chatMessages, setChatMessages }) {
       const [inputValue, setInputValue] = React.useState("");
+      const chatInputRef = React.useRef(null);
+      
+      React.useEffect(() => {
+        chatInputRef.current.focus()
+      },[]);
+
       function storeInputValue(event) {
         setInputValue(event.target.value);//he
       }
@@ -130,6 +136,7 @@
             onKeyDown={handleKeyDown}
             value={inputValue}
             className="chat-input"
+            ref = {chatInputRef}
           />
 
           <button
@@ -168,9 +175,17 @@
 
     function ChatMessages({ chatMessages, setChatMessages }) {
 
+      const chatMessagesRef = React.useRef(null);
+
+      React.useEffect(() => {
+        const containerElm = chatMessagesRef.current;
+        if(containerElm){
+            containerElm.scrollTop = containerElm.scrollHeight;
+        }
+      },[chatMessages]);
 
       return (
-        <div className = "chat-messages-div">
+        <div className = "chat-messages-div" ref = {chatMessagesRef}>
           {chatMessages.map(chatMessage => {
             return (<ChatMessage
               message={chatMessage.message}

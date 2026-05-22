@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>First React lecture</title>
+  <style>
+
+    body{
+      font-family : Arial, Helvetica, sans-serif
+    }
+    .user-input{
+      font-size : 16px;
+      padding : 8px 15px;
+      margin-bottom : 10px;
+      border-radius : 5px;
+      border-width : 1px;
+    }
+    .user-bttn{
+      margin-left : 5px;
+      font-size: 15px;
+      padding : 9px 13px;
+      background-color: rgb(0,135,255);
+      color : white;
+      border : none;
+      border-radius : 6px;
+    }
+    .show-bttn{
+      margin-left : 5px;
+      border-radius: 5px;
+      border-width : 1px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+
+    function App(){
+
+      const [showPassword, setShowPassword] = React.useState(false);
+
+      function handlePassword(){
+        setShowPassword(!showPassword);
+      }
+
+     return (
+      <>
+        <h1>Hello, welcome to my website</h1>
+        <div>
+        <input 
+        className = "user-input"
+        type="email" placeholder = "Email" />
+        </div>
+        
+        <input 
+        className = "user-input"
+        type={showPassword ? "text" : "password"}
+        placeholder = "Password"/>
+        <button
+        className = "show-bttn"
+        onClick = {handlePassword}
+        >{showPassword ? "Hide" : "Show"}</button>
+        
+        <div>
+        <button className = "user-bttn">Login</button>
+        <button className = "user-bttn">Sign Up</button>
+        </div>
+      </>
+     )
+    } 
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App />);
+  </script>
+</body>
+</html>
