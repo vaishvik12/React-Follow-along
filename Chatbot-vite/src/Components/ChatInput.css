@@ -1,0 +1,26 @@
+  .send-bttn {
+    background-color: rgb(25, 135, 84);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    margin-left: 10px;
+  }
+
+  .chat-input {
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    flex-grow: 1
+  }
+
+  .chat-input-div {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .loading-spinner{
+    height : 40px;
+    margin : -15px
+  }

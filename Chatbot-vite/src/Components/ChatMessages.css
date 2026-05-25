@@ -1,0 +1,30 @@
+  .user-message-div {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    margin-top: 10px
+  }
+
+  .robot-message-div {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-top: 10px;
+  }
+
+  .chat-message-div {
+    background-color: rgb(230, 230, 230);
+    padding: 12px 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 300px;
+    border-radius: 8px
+  }
+
+  .chat-messages-div {
+    flex-grow: 1;
+    overflow: scroll;
+    scrollbar-width: none;
+  }

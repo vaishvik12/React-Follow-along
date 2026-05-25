@@ -1,5 +1,7 @@
 import {useState,useRef,useEffect} from "react"
 import {Chatbot} from 'supersimpledev'
+import LoadingSpinner from '../assets/loading-spinner.gif'
+import "./ChatInput.css"
 
 function ChatInput({ chatMessages, setChatMessages }) {
   const [inputValue, setInputValue] = useState("");
@@ -23,6 +25,14 @@ function ChatInput({ chatMessages, setChatMessages }) {
 
     setChatMessages(userMessage)
 
+
+      setChatMessages([...userMessage, {
+      message: <img src = {LoadingSpinner} className = "loading-spinner"></img>,
+      sender: "robot",
+      id: crypto.randomUUID()
+    }])
+
+    setInputValue("");
     let chatBotResponse = await Chatbot.getResponseAsync(inputValue);
 
     setChatMessages([...userMessage, {
@@ -32,7 +42,7 @@ function ChatInput({ chatMessages, setChatMessages }) {
     }])
 
 
-    setInputValue("");
+
   }
 
   function handleKeyDown(event) {
