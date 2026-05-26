@@ -2,6 +2,7 @@ import {useState,useRef,useEffect} from "react"
 import {Chatbot} from 'supersimpledev'
 import LoadingSpinner from '../assets/loading-spinner.gif'
 import "./ChatInput.css"
+import dayjs from "dayjs";
 
 function ChatInput({ chatMessages, setChatMessages }) {
   const [inputValue, setInputValue] = useState("");
@@ -16,11 +17,12 @@ function ChatInput({ chatMessages, setChatMessages }) {
   }
 
   async function sendNewMessage() {
-
+    
     const userMessage = [...chatMessages, {
       message: inputValue,
       sender: "user",
-      id: crypto.randomUUID()
+      id: crypto.randomUUID(),
+      time : dayjs().valueOf()
     }];
 
     setChatMessages(userMessage)
@@ -29,7 +31,8 @@ function ChatInput({ chatMessages, setChatMessages }) {
       setChatMessages([...userMessage, {
       message: <img src = {LoadingSpinner} className = "loading-spinner"></img>,
       sender: "robot",
-      id: crypto.randomUUID()
+      id: crypto.randomUUID(),
+      time : dayjs().valueOf()
     }])
 
     setInputValue("");
@@ -38,7 +41,8 @@ function ChatInput({ chatMessages, setChatMessages }) {
     setChatMessages([...userMessage, {
       message: chatBotResponse,
       sender: "robot",
-      id: crypto.randomUUID()
+      id: crypto.randomUUID(),
+      time : dayjs().valueOf()
     }])
 
 
@@ -51,6 +55,11 @@ function ChatInput({ chatMessages, setChatMessages }) {
     } else if (event.key === "Escape") {
       setInputValue("");
     }
+  }
+
+  function handleClear(){
+    localStorage.removeItem("messages");
+    setChatMessages([]);
   }
 
 
@@ -74,6 +83,10 @@ function ChatInput({ chatMessages, setChatMessages }) {
       >
         Send
       </button>
+
+      <button
+      onClick = {handleClear}
+      >Clear</button>
     </div>
   )
 };

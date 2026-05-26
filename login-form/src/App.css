@@ -1,0 +1,26 @@
+
+    body{
+      font-family : Arial, Helvetica, sans-serif
+    }
+    .user-input{
+      font-size : 16px;
+      padding : 8px 15px;
+      margin-bottom : 10px;
+      border-radius : 5px;
+      border-width : 1px;
+    }
+    .user-bttn{
+      margin-left : 5px;
+      font-size: 15px;
+      padding : 9px 13px;
+      background-color: rgb(0,135,255);
+      color : white;
+      border : none;
+      border-radius : 6px;
+    }
+    .show-bttn{
+      margin-left : 5px;
+      border-radius: 5px;
+      border-width : 1px;
+    }
+
